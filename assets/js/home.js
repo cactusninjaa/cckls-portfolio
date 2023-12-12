@@ -20,5 +20,5 @@ window.addEventListener('mousemove', positionElement)
 const homePage = document.querySelector('.home');
 
 homePage.addEventListener('click', function() {
-    window.location.href = 'pages/gallery.php'; 
+    window.location.href = 'pages/gallery.html'; 
 });

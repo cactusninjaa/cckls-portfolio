@@ -1,0 +1,311 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: black;
+  --first-color-clear: white;
+  --first-color-dark: hsl(151, 52%, 17%);
+  --first-color-darker: hsl(151, 52%, 12%);
+  --title-color: hsl(49, 96%, 91%);
+  --text-color: white;
+  --text-color-dark: black;
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Inter", sans-serif;
+  --second-font: "Inter", sans-serif;
+  --biggest-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: .938rem;
+  --smaller-font-size: .75rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --smaller-font-size: .813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--first-color);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+a:visited{
+  color: var(--text-color);
+}
+
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+.main {
+  overflow: hidden;
+}
+
+.cursor__home{
+  background-color: var(--first-color-clear);
+  color: var(--text-color-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  position: fixed;
+  width: 30px;
+  height: 30px; 
+  border-radius: 50%; 
+  pointer-events: none; 
+  z-index: 9999; 
+}
+
+
+/*=============== HEADER & NAV ===============*/
+header{
+  position: fixed;
+  width: 100%;
+  top: 0; 
+  left: 0;  
+  background-color: transparent;
+  z-index: var(--z-fixed);
+  padding-top: 2rem;
+}
+
+.nav,
+.nav__list {
+  display: flex;
+}
+
+.nav {
+  position: relative;
+  height: var(--header-height);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__toggle,
+.nav__close {
+  display: inline-flex;
+  font-size: 1.25rem;
+  color: var(--first-color-clear);
+  cursor: pointer;
+}
+
+
+.nav__menu {
+  position: fixed;
+  top: 0;
+  background: var(--first-color);
+  right: -100%;
+  width: 100%;
+  max-width: 1120px;
+  height: 100%;
+  box-shadow: -2px 0 12px hsla(0, 0%, 0%, 0.2);
+  padding: 8rem 6rem 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5rem;
+  transition : rigth .4s;
+}
+
+
+.nav__list{
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+
+.nav__link{
+  width: 100%;
+  color: var(--text-color);
+  font-weight: var(--font-bold);
+  display: inline-flex;
+  flex-direction: column;
+  transition: color .4s;
+  font-size: var(--h2-font-size);
+  padding: 0.5rem ;
+}
+
+.nav__link span{
+  font-size: var(--smaller-font-size);
+}
+
+.nav__link:hover{
+  background-color: grey;
+  border-radius: 0.5rem;
+  transition: 0.5s;
+}
+
+
+.nav__close{
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+}
+
+
+
+/* Show menu */
+.show-menu{
+  right: auto;
+}
+
+/*=============== BUTTON ===============*/
+.button{
+  display: inline-block;
+  background-color: var(--first-color-clear);
+  color: var(--text-color-dark);
+  padding: .75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: var(--font-bold);
+  transition: .3s;
+}
+
+/*=============== HOME ===============*/
+.home{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: none;
+}
+
+/*=============== PRODUCT ===============*/
+.product{
+  padding: 30rem 0;
+}
+
+/*=============== GALLERY ===============*/
+.gallery{
+  position: relative;
+  width: 100%;
+  min-height: 120vh;
+  padding: 12rem 0;
+}
+.gallery__item{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 120px;
+  margin: 10px;
+}
+.gallery__item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*=============== ABOUT ===============*/
+.about {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.about__text {
+  font-family: var(--second-font);
+  font-size: var(--normal-font-size);
+  width: 35ch;
+  animation: typing 2s steps(35), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+/*=============== FOOTER ===============*/
+.footer{
+  background-color: var(--first-color);
+  color: var(--text-color);
+  padding: 2rem 0;
+}
+
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+
+
+/* For medium devices */
+
+
+/* For lower devices */
+
+
+/* For large devices */
+@media screen and (min-width: 1150px) {
+  .container{
+    margin-inline: auto;
+  }
+  .nav__menu{
+    margin-inline: auto;
+  }
+  .nav__close{
+    right: 0rem;
+  }
+}

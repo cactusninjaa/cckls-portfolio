@@ -2,7 +2,8 @@ const items = document.querySelectorAll(".gallery__item");
 const gallery = document.querySelector(".gallery");
 const numberOfItems = items.length;
 const angleIncrement = (2 * Math.PI) / numberOfItems;
-const radius = 300;
+
+let radius = 300;
 
 let isGalleryOpen = false;
 
@@ -10,6 +11,11 @@ const centerX = gallery.offsetWidth / 2;
 const centerY = gallery.offsetHeight / 2;
 const tl = gsap.timeline();
 
+if (window.innerWidth < 500) {
+    radius = 150;
+} else if (window.innerWidth < 800) {
+    radius = 200;
+}
 
 
 items.forEach((item, index) => {
